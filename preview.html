@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los Santos RP | Flex City</title>
+<meta name="description" content="سيرفر لوس سانتوس في فليكس سيتي - تجربة Roleplay واقعية، وظائف، قطاعات، عصابات وإدارة محترفة.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+    font-family:'Cairo',sans-serif;
+    color:#fff;
+    background:#09050f;
+    overflow-x:hidden;
+}
+body::before{
+    content:"";
+    position:fixed;inset:0;z-index:-3;
+    background:
+      linear-gradient(180deg,rgba(8,3,16,.55),#09050f 92%),
+      url("https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=2200&q=85")
+      center/cover;
+}
+body::after{
+    content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+    background:
+      radial-gradient(circle at 15% 20%,rgba(162,75,255,.22),transparent 30%),
+      radial-gradient(circle at 85% 35%,rgba(255,184,76,.13),transparent 28%);
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1150px,92%);margin:auto}
+
+/* NAVBAR */
+nav{
+    position:fixed;top:0;right:0;left:0;z-index:50;
+    padding:16px 0;
+    background:rgba(10,5,18,.78);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,193,92,.14);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{
+    font-size:21px;font-weight:900;letter-spacing:1px;
+}
+.logo span{color:#d89b45}
+nav ul{display:flex;gap:26px;list-style:none}
+nav ul a{font-weight:700;color:#ddd4e8;transition:.25s}
+nav ul a:hover{color:#e3aa55}
+.nav-btn{
+    padding:11px 20px;border-radius:30px;font-weight:900;
+    color:#160c20;
+    background:linear-gradient(135deg,#ffd77b,#b97828);
+    box-shadow:0 0 25px rgba(226,160,65,.2);
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;display:flex;align-items:center;
+    padding:130px 0 80px;
+}
+.hero-content{max-width:790px}
+.badge{
+    display:inline-block;padding:8px 17px;border-radius:30px;
+    background:rgba(176,93,255,.12);
+    border:1px solid rgba(204,145,255,.35);
+    color:#e1b9ff;font-weight:800;margin-bottom:20px;
+}
+h1{
+    font-size:clamp(45px,8vw,88px);
+    line-height:1.04;font-weight:900;
+    text-shadow:0 8px 35px rgba(0,0,0,.65);
+}
+h1 span{
+    color:#e0a34e;
+    text-shadow:0 0 30px rgba(224,163,78,.22);
+}
+.hero p{
+    font-size:19px;line-height:2;color:#d8cfdf;
+    margin:25px 0 32px;max-width:730px;
+}
+.buttons{display:flex;gap:13px;flex-wrap:wrap}
+.hero-btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:13px 23px;border-radius:12px;font-weight:900;
+    color:#170b20;
+    background:linear-gradient(135deg,#ffe09a,#b8792d);
+    box-shadow:0 10px 30px rgba(211,148,58,.18);
+    transition:.25s;
+}
+.hero-btn:hover,.nav-btn:hover{transform:translateY(-3px)}
+.hero-btn.secondary{
+    color:#fff;background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.14);
+    box-shadow:none;
+}
+
+/* SECTIONS */
+section{padding:95px 0}
+.section-title{text-align:center;margin-bottom:48px}
+.section-title .small{
+    color:#dba250;font-weight:900;letter-spacing:2px;
+}
+.section-title h2{font-size:40px;margin:8px 0}
+.section-title p{color:#a99fb2}
+
+/* FEATURE CARDS */
+.grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
+}
+.card{
+    padding:30px 23px;min-height:235px;
+    border-radius:22px;
+    background:linear-gradient(145deg,rgba(35,18,48,.88),rgba(14,8,22,.86));
+    border:1px solid rgba(222,167,88,.12);
+    box-shadow:inset 0 1px rgba(255,255,255,.04),0 15px 45px rgba(0,0,0,.2);
+    transition:.3s;
+}
+.card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(226,169,79,.45);
+    box-shadow:0 18px 45px rgba(0,0,0,.35),0 0 30px rgba(172,85,255,.08);
+}
+.icon{font-size:38px;margin-bottom:17px}
+.card h3{font-size:20px;margin-bottom:10px;color:#f6e4c8}
+.card p{color:#ada3b6;line-height:1.9;font-size:14px}
+
+/* ROLES */
+.roles{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.role{
+    min-height:260px;padding:28px;
+    border-radius:24px;
+    display:flex;flex-direction:column;justify-content:end;
+    overflow:hidden;position:relative;
+    background:
+      linear-gradient(180deg,rgba(16,7,25,.05),rgba(7,3,12,.94)),
+      url("https://images.unsplash.com/photo-1517832207067-4db24a2ae47c?auto=format&fit=crop&w=900&q=80")
+      center/cover;
+    border:1px solid rgba(255,255,255,.1);
+    transition:.3s;
+}
+.role:hover{transform:scale(1.025)}
+.role:nth-child(2){
+    background:
+      linear-gradient(180deg,rgba(16,7,25,.05),rgba(7,3,12,.94)),
+      url("https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=900&q=80")
+      center/cover;
+}
+.role:nth-child(3){
+    background:
+      linear-gradient(180deg,rgba(16,7,25,.05),rgba(7,3,12,.94)),
+      url("https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=900&q=80")
+      center/cover;
+}
+.role h3{font-size:25px;color:#f7dfb4}
+.role p{color:#ded4e2;line-height:1.8}
+
+/* CTA */
+.cta{
+    padding:65px 25px;text-align:center;border-radius:28px;
+    background:
+      radial-gradient(circle at 50% 0,rgba(210,151,65,.14),transparent 45%),
+      linear-gradient(135deg,rgba(81,32,116,.42),rgba(23,12,31,.85));
+    border:1px solid rgba(225,165,73,.2);
+    box-shadow:0 20px 70px rgba(0,0,0,.3);
+}
+.cta h2{font-size:40px;margin-bottom:12px}
+.cta p{color:#c8bdcf;margin-bottom:28px}
+.discord{
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:15px 27px;border-radius:13px;
+    background:linear-gradient(135deg,#7d5cff,#5740c9);
+    font-weight:900;
+    box-shadow:0 12px 35px rgba(96,70,220,.28);
+    transition:.25s;
+}
+.discord:hover{transform:translateY(-3px)}
+
+/* FOOTER */
+footer{
+    text-align:center;padding:38px 0;
+    border-top:1px solid rgba(255,255,255,.08);
+    color:#817788;
+}
+footer strong{color:#dca14e}
+
+/* MOBILE */
+@media(max-width:850px){
+    nav ul{display:none}
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .roles{grid-template-columns:1fr}
+}
+@media(max-width:550px){
+    .grid{grid-template-columns:1fr}
+    h1{font-size:46px}
+    .hero p{font-size:16px}
+    .section-title h2,.cta h2{font-size:31px}
+    .nav-btn{padding:9px 14px;font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a class="logo" href="#home">LOS <span>SANTOS</span> RP</a>
+    <ul>
+      <li><a href="#home">الرئيسية</a></li>
+      <li><a href="#features">المميزات</a></li>
+      <li><a href="#jobs">القطاعات</a></li>
+      <li><a href="#join">الانضمام</a></li>
+    </ul>
+    <a class="nav-btn" href="https://discord.gg/fAZ93Ru39" target="_blank">ديسكورد ↗</a>
+  </div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <div class="badge">🚀 مرحباً بك في مدينة لوس سانتوس</div>
+      <h1>اكتب قصتك في<br><span>Los Santos RP</span></h1>
+      <p>
+        هل تبحث عن تجربة واقعية لا تُنسى؟ سيرفر لوس سانتوس في لعبة فليكس سيتي
+        يفتح أبوابه لك الآن. عِش الحياة التي تختارها، وابنِ شخصيتك، واكتب قصتك بنفسك.
+      </p>
+      <div class="buttons">
+        <a class="hero-btn" href="https://discord.gg/fAZ93Ru39" target="_blank">🔗 انضم إلى الديسكورد</a>
+        <a class="hero-btn secondary" href="#features">اكتشف المدينة ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+<div class="container">
+  <div class="section-title">
+    <div class="small">WHY LOS SANTOS?</div>
+    <h2>ما الذي يميز سيرفرنا؟</h2>
+    <p>تجربة Roleplay مصممة لتعيش تفاصيل المدينة بكل واقعية.</p>
+  </div>
+  <div class="grid">
+    <article class="card"><div class="icon">🎭</div><h3>Roleplay واقعي</h3><p>سيناريوهات واقعية وتفاعلية تمنحك فرصة عيش شخصيتك بكل تفاصيلها.</p></article>
+    <article class="card"><div class="icon">🚔</div><h3>قطاعات متنوعة</h3><p>شرطة، إسعاف، سلك عسكري، تجارة وأعمال حرة ومسارات مختلفة لحياتك.</p></article>
+    <article class="card"><div class="icon">🕶️</div><h3>عصابات وغموض</h3><p>اختر الطريق المظلم، كوّن عصابتك الخاصة واصنع سيناريوهاتك داخل المدينة.</p></article>
+    <article class="card"><div class="icon">🛡️</div><h3>إدارة محترفة</h3><p>طاقم إدارة ودعم مستمر للمساعدة في حل المشاكل والحفاظ على بيئة لعب ممتعة.</p></article>
+  </div>
+</div>
+</section>
+
+<section id="jobs">
+<div class="container">
+  <div class="section-title">
+    <div class="small">CHOOSE YOUR PATH</div>
+    <h2>اختر طريقك</h2>
+    <p>في لوس سانتوس، كل قرار يمكن أن يصنع قصة جديدة.</p>
+  </div>
+  <div class="roles">
+    <article class="role"><h3>🚔 الشرطة والأمن</h3><p>حافظ على النظام وشارك في المواقف والبلاغات والسيناريوهات الأمنية.</p></article>
+    <article class="role"><h3>🚑 الإسعاف</h3><p>أنقذ الأرواح وكن جزءاً من القطاع الطبي داخل المدينة.</p></article>
+    <article class="role"><h3>💼 التجارة والأعمال</h3><p>ابدأ طريقك في التجارة والأعمال الحرة وابنِ مستقبلك داخل المدينة.</p></article>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="container">
+  <div class="cta" id="join">
+    <h2>👑 لوس سانتوس بانتظارك</h2>
+    <p>سواء كنت لاعباً محترفاً أو مبتدئاً في عالم فليكس سيتي، مكانك موجود معنا.</p>
+    <a class="discord" href="https://discord.gg/fAZ93Ru39" target="_blank">💬 رابط الديسكورد للانضمام والتقديم</a>
+  </div>
+</div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>🔗 رابط سيرفر الديسكورد للانضمام والتقديم:
+      <a href="https://discord.gg/fAZ93Ru39" target="_blank"><strong>discord.gg/fAZ93Ru39</strong></a>
+    </p>
+    <p style="margin-top:8px">© 2026 Los Santos RP — Flex City</p>
+  </div>
+</footer>
+
+</body>
+</html>
